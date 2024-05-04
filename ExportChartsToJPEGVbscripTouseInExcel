@@ -1,0 +1,16 @@
+Sub ExportChartsToJPEG()
+    Dim chartSheet As Chart
+    Dim exportPath As String
+    
+    ' Get the path of the current Excel file
+    exportPath = ThisWorkbook.Path & "\"
+    
+    ' Loop through each chart sheet
+    For Each chartSheet In ThisWorkbook.Charts
+        ' Export the chart as JPEG with sheet name
+        chartSheet.Export exportPath & chartSheet.Name & ".jpg", "JPEG"
+    Next chartSheet
+    
+    MsgBox "Charts exported successfully to: " & exportPath, vbInformation
+End Sub
+
